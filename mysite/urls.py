@@ -12,11 +12,13 @@ Class-based views
 Including another URLconf
     1. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
 #import views.py dari folder mysite beserta objectnya
 from mysite.views import homepage, hello, timesnow, hours_ahead, contact
 from books import views
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -34,3 +36,5 @@ urlpatterns = [
     url(r'^search-form/$', views.search_form),
     url(r'^search/$', views.search),
 ]
+    # if settings.DEBUG:
+    #     urlpatterns += [url(r'^debuginfo/$', views.debug),]
